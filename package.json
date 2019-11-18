@@ -1,0 +1,22 @@
+{
+  "name": "openvasp-skeleton",
+  "version": "1.0.0",
+  "description": "",
+  "main": "",
+  "repository": "https://github.com/kryptogo/openvasp-skeleton",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "postinstall": "go install github.com/ethereum/go-ethereum/cmd/abigen",
+    "compile": "truffle compile",
+    "abigen:openvasp": "jq '.abi' build/contracts/OpenVASP.json > build/OpenVASP.abi; abigen --abi build/OpenVASP.abi --pkg openvasp --out contract.go",
+    "abigen:identityclaim": "jq '.abi' build/contracts/IdentityClaim.json > build/IdentityClaim.abi; abigen --abi build/IdentityClaim.abi --pkg identityclaim --out identityclaim/contract.go"
+  },
+  "author": "Jimmy Hu",
+  "license": "MIT",
+  "dependencies": {
+    "node-jq": "^1.11.0",
+    "truffle": "^5.1.0"
+  }
+}
